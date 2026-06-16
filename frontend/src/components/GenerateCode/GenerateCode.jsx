@@ -94,6 +94,7 @@ const GenerateCode = ({ username, userid }) => {
   };
   useEffect(() => {
     fetchCodeHistory();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleToggleUsedUnused = async (id, IsUsed) => {

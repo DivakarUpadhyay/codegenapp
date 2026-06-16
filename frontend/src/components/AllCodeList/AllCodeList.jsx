@@ -18,6 +18,7 @@ const AllCodeList = () => {
 
   useEffect(() => {
     fetchCodeHistory();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchCodeHistory = async () => {

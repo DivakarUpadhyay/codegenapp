@@ -39,10 +39,8 @@ function App() {
       }
     };
     validate();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authChanged]);
-  useEffect(() => {
-    console.log("user changed:", user);
-  }, [user]);
   const handleLogout = async () => {
     await api.post("/api/auth/logout", {}, { withCredentials: true });
     setUser(null);

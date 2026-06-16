@@ -23,7 +23,7 @@ const Header = ({ onLogout, username, RoleID,hideMenus }) => {
           Unique Code System — Demo
         </Typography>
         {!hideMenus && (
-          <Box sx={{ display: 'flex', justifyContent: 'flex-start', flexGrow: 1, flexWrap: 'wrap', justifyContent: isMobile ? 'center' : 'flex-start' }}>
+          <Box sx={{ display: 'flex', flexGrow: 1, flexWrap: 'wrap', justifyContent: isMobile ? 'center' : 'flex-start' }}>
             <Typography
               component={Link}
               to="/generatecode"
