@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const logout = async () => {
     try {
-     const response=await api.post("/api/auth/logout", {}, { withCredentials: true }); 
+     await api.post("/api/auth/logout", {}, { withCredentials: true });
     setUser(null);
     navigate("/"); 
     } catch (err) {

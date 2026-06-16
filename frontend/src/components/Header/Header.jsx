@@ -6,7 +6,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 const Header = ({ onLogout, username, RoleID,hideMenus }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const roleLabel = RoleID == '1' ? 'Admin' : 'User';
+  const roleLabel = Number(RoleID) === 1 ? 'Admin' : 'User';
   return (
     <AppBar position="sticky" sx={{ boxShadow: 4, background: '#7c6fcd' }}>
       <Toolbar sx={{ padding: '0 20px', fontWeight: 'bold', color: '#fff', flexWrap: 'wrap' }}>
@@ -42,7 +42,7 @@ const Header = ({ onLogout, username, RoleID,hideMenus }) => {
             >
               Generate Code
             </Typography>
-            {RoleID == '1' && (
+            {Number(RoleID) === 1 && (
               <>
                 <Typography
                   component={Link}

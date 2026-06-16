@@ -21,7 +21,7 @@ const ResetUsercredential = () => {
   });
 
   const [showPassword, setShowPassword] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const [step, setStep] = useState(1); 
@@ -86,8 +86,8 @@ const ResetUsercredential = () => {
       const response = await api.post('/api/code/resetCredentials', formData);
       setSubmitted(true);
       setErrorMessage(response.data.message);
-      setIsSuccess(response.data.status == 1);
-      if (response.data.status == 1) {
+      setIsSuccess(response.data.status === 1);
+      if (response.data.status === 1) {
         setFormData({
           username: '',
           email: '',

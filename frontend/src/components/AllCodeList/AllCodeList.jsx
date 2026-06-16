@@ -48,7 +48,7 @@ const AllCodeList = () => {
       setCodes(enrichedCodes);
       setFilteredCodes(enrichedCodes);
     } catch (error) {
-      if(error.status==401&& error.response.data.message=="Invalid Token")
+      if(error.status===401&& error.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -90,7 +90,7 @@ const AllCodeList = () => {
         fetchCodeHistory();
       }
     } catch (err) {
-      if(err.status==401&&err.response.data.message=="Invalid Token")
+      if(err.status===401&&err.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else

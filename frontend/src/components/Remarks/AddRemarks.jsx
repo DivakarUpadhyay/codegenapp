@@ -31,7 +31,7 @@ const AddRemarks = () => {
         text: response.data.message || 'Remark updated successfully.',
       });
     } catch (error) {
-      if(error.status==401&&error.response.data.message=="Invalid Token")
+      if(error.status===401&&error.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -130,7 +130,7 @@ height: '40px'
         }}
       >
         <Edit sx={{ color: '#7c6fcd' }} />
-        Add {RoleID==1?"Admin":RoleID==2?"User":""} Remark
+        Add {RoleID===1?"Admin":RoleID===2?"User":""} Remark
       </Typography>
 
       {message.text && (

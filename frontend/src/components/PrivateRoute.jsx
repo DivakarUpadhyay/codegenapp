@@ -9,11 +9,11 @@ const PrivateRoute = ({ element, requiredRole, user,isRemark }) => {
     return <Navigate to="/login"  />;
   }
 
-  if ((requiredRole && user.RoleID !== requiredRole)|| isRemark==true) {
+  if ((requiredRole && user.RoleID !== requiredRole)|| isRemark===true) {
     return (
       <div style={{ padding: '2rem', textAlign: 'center',marginTop:'105px' }}>
       <h2>🚫 Access Denied</h2>
-      <p>{isRemark==true?"Add remark page is not accessible directly":"You do not have permission to view this page."}</p>
+      <p>{isRemark===true?"Add remark page is not accessible directly":"You do not have permission to view this page."}</p>
       <button onClick={() => navigate('/home')}   style={{
     backgroundColor: '#7c6fcd',
     color: '#fff',

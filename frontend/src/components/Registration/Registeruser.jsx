@@ -27,7 +27,7 @@ const RegisterForm = () => {
       }));
       setUsers(enrichedUsers);
     } catch (error) {
-      if(error.status==401&&error.response.data.message=="Invalid Token")
+      if(error.status===401&&error.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -43,7 +43,7 @@ const RegisterForm = () => {
       const response = await api.get('/api/code/getRoles');
       setRoles(response.data.roleslist);
     } catch (error) {
-      if(error.status==401&&error.response.data.message=="Invalid Token")
+      if(error.status===401&&error.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -77,7 +77,7 @@ const RegisterForm = () => {
       fetchUsers();
       setFormData({ RoleID: 0, FirstName: '', LastName: '', EmailID: '' });
     } catch (err) {
-      if(err.status==401&&err.response.data.message=="Invalid Token")
+      if(err.status===401&&err.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -107,7 +107,7 @@ const RegisterForm = () => {
         });
       }
     } catch (err) {
-      if(err.status==401&&err.response.data.message=="Invalid Token")
+      if(err.status===401&&err.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else

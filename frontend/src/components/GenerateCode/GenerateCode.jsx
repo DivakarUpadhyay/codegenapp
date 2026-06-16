@@ -36,7 +36,7 @@ const GenerateCode = ({ username, userid }) => {
       await fetchCodeHistory();
       setTimeout(() => setHighlightedRowId(null), 3000);
     } catch (error) {
-      if(error.status==401&& error.response.data.message=="Invalid Token")
+      if(error.status===401&& error.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -81,7 +81,7 @@ const GenerateCode = ({ username, userid }) => {
       setCodes(enrichedcodes);
       setFilteredCodes(enrichedcodes);
     } catch (error) {
-      if(error.status==401&& error.response.data.message=="Invalid Token")
+      if(error.status===401&& error.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
@@ -112,7 +112,7 @@ const GenerateCode = ({ username, userid }) => {
         });
       }
     } catch (err) {
-      if(err.status==401&& err.response.data.message=="Invalid Token")
+      if(err.status===401&& err.response.data.message==="Invalid Token")
         {
           navigate("/");
         }else
