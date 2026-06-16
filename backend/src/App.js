@@ -1,22 +1,23 @@
 const express = require('express');
-const cookieParser = require('cookie-parser'); 
+const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const app = express();
+
 app.use(cookieParser());
 app.use(express.json());
-const corsOptions = {
-    origin: ['http://localhost:3000', 'http://localhost:3005', 'http://192.168.0.249:3000'],
-    credentials: true,
-  };
-app.use(cors(corsOptions));
+
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:3005',
+  'https://codegenapp.vercel.app',
+  process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
+].filter(Boolean);
+
+app.use(cors({ origin: allowedOrigins, credentials: true }));
+
 const authRoutes = require('./routes/authRoutes');
 const codeRoutes = require('./routes/codeRoutes');
 app.use('/api/auth', authRoutes);
 app.use('/api/code', codeRoutes);
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
-  });
-}
+
 module.exports = app;
